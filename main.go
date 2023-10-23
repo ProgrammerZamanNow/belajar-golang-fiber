@@ -12,6 +12,10 @@ func main() {
 		ReadTimeout:  time.Second * 5,
 	})
 
+	app.Get("/", func(ctx *fiber.Ctx) error {
+		return ctx.SendString("Hello World")
+	})
+
 	err := app.Listen("localhost:3000")
 	if err != nil {
 		panic(err)
